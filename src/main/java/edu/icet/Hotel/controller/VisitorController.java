@@ -26,7 +26,7 @@ public class VisitorController {
         }
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("/getAll-visitors")
     public List<Visitor> getAllVisitors() {
         return visitorService.getVisitors();
     }

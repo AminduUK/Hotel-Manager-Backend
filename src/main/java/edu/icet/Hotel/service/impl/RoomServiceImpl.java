@@ -23,6 +23,7 @@ public class RoomServiceImpl implements RoomService {
 
     @Override
     public void addNewRoom(Room room) {
+        room.setAvailability("Available");
         RoomEntity roomEntity = modelMapper.map(room, RoomEntity.class);
         roomDao.save(roomEntity);
     }
@@ -37,7 +38,7 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public boolean updateRoomAvailability(Long roomId, String availability) {
+    public void updateRoomAvailability(Long roomId, String availability) {
         // Check if the room with the specified ID exists
         Optional<RoomEntity> optionalRoom = roomDao.findById(roomId);
 
@@ -46,10 +47,8 @@ public class RoomServiceImpl implements RoomService {
             // Update the availability field
             room.setAvailability(availability);
             roomDao.save(room);
-            return true;
-        } else {
-            return false; // Room not found
         }
+
     }
 
     @Override

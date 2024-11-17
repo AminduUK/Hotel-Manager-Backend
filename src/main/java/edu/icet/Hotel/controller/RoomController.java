@@ -28,29 +28,16 @@ public class RoomController {
         }
     }
 
-    @GetMapping("/getAll")
+    public void changeRoomAvailability(Long roomID) {
+        roomService.updateRoomAvailability(roomID, "Occupied");
+    }
+
+    @GetMapping("/getAllRooms")
     public List<Room> getAllRooms() {
         return roomService.getRooms();
     }
 
 
-    @PutMapping("/changeAvailability")
-    public ResponseEntity<String> changeRoomAvailability(@RequestBody Map<String, Object> request) {
-        Long roomId = request.get("roomId") != null ? Long.valueOf(request.get("roomId").toString()) : null;
-        String availability = (String) request.get("availability");
-
-        if (roomId == null || availability == null) {
-            return ResponseEntity.badRequest().body("Room ID and availability are required.");
-        }
-
-        boolean updated = roomService.updateRoomAvailability(roomId, availability);
-
-        if (updated) {
-            return ResponseEntity.ok("Room availability updated successfully.");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Room not found or update failed.");
-        }
-    }
 
     @GetMapping("/getAvailableRooms")
     public List<Room> getAvailableRooms() {

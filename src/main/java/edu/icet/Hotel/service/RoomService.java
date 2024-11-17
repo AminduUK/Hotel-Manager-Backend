@@ -10,7 +10,7 @@ public interface RoomService {
 
     List<Room> getRooms();
 
-    boolean updateRoomAvailability(Long roomId, String availability);
+    void updateRoomAvailability(Long roomId, String availability);
 
     List<Room> getAvailableRooms();
 }
