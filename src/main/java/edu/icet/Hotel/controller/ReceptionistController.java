@@ -13,7 +13,7 @@ public class ReceptionistController {
 
     final ReceptionistService receptionistService;
 
-    @PostMapping("/login")
+    @PostMapping("/receptionist-login")
     public boolean login(@RequestBody Receptionist receptionist) {
         boolean isValid = receptionistService.validateCredentials(receptionist);
         return isValid;

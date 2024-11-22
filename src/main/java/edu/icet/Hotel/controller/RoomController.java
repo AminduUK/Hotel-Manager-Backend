@@ -3,12 +3,8 @@ package edu.icet.Hotel.controller;
 import edu.icet.Hotel.dto.Room;
 import edu.icet.Hotel.service.RoomService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @CrossOrigin
@@ -18,7 +14,7 @@ public class RoomController {
 
     final RoomService roomService;
 
-    @PostMapping("/addNewRoom")
+    @PostMapping("/addNew-room")
     public boolean addNewRoom(@RequestBody Room room) {
         if (room != null) {
             roomService.addNewRoom(room);
@@ -32,17 +28,18 @@ public class RoomController {
         roomService.updateRoomAvailability(roomID, "Occupied");
     }
 
-    @GetMapping("/getAllRooms")
+    public void restoredRoomAvailability(Long roomID) {
+        roomService.updateRoomAvailability(roomID, "Available");
+    }
+
+    @GetMapping("/getAll-rooms")
     public List<Room> getAllRooms() {
         return roomService.getRooms();
     }
 
-
-
-    @GetMapping("/getAvailableRooms")
+    @GetMapping("/get-available-rooms")
     public List<Room> getAvailableRooms() {
         return roomService.getAvailableRooms();
     }
-
 
 }

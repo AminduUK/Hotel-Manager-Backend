@@ -33,7 +33,7 @@ public class VisitorServiceImpl implements VisitorService {
         visitorDao.findAll().forEach(VisitorEntity->{
             visitors.add(modelMapper.map(VisitorEntity,Visitor.class));
         });
-        return  visitors;
+        return visitors;
     }
 
     @Override

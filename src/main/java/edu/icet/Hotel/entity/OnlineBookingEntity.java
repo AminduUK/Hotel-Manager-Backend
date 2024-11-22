@@ -13,13 +13,13 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "Booking")
-public class BookingEntity {
+@Table(name = "OnlineBooking")
+public class OnlineBookingEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long bookingId;
-    private Long visitorId;
-    private Long roomId;
-    private LocalDate checkInDate;
-    private LocalDate checkOutDate;
+    private Long bookingIdOnl;
+    private Long visitorIdOnl;
+    private Long roomIdOnl;
+    private LocalDate checkInDateOnl;
+    private LocalDate checkOutDateOnl;
 }

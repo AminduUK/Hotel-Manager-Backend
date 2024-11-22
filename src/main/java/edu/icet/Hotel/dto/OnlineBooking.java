@@ -10,10 +10,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Booking {
-    private Long bookingId;
-    private Long visitorId;
-    private Long roomId;
-    private LocalDate checkInDate;
-    private LocalDate checkOutDate;
+public class OnlineBooking {
+    private Long bookingIdOnl;
+    private Long visitorIdOnl;
+    private Long roomIdOnl;
+    private LocalDate checkInDateOnl;
+    private LocalDate checkOutDateOnl;
 }
